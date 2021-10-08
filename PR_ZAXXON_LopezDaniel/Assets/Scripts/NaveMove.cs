@@ -21,17 +21,17 @@ public class NaveMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        variables = GameObject.Find("Variables").GetComponent<Variables>();
-
-        desplXSpeed = variables.ShipSpeedX;
-        desplYSpeed = variables.ShipSpeedY;
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        variables = GameObject.Find("Variables").GetComponent<Variables>();
 
+        desplXSpeed = variables.ShipSpeedX;
+        desplYSpeed = variables.ShipSpeedY;
 
 
         Movimiento();

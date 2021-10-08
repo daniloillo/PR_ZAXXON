@@ -11,17 +11,27 @@ public class Instanciador : MonoBehaviour
     [SerializeField] GameObject columna;
     [SerializeField] Transform initPos;
 
-
+    float speed;
     float interval;
+    Variables variables;
+    [SerializeField] float distance;
 
 
     // Start is called before the first frame update
     void Start()
     {
 
-        interval = 0.5f;
+        distance = 15f;
 
         StartCoroutine("CrearColumna");
+
+        //Valor de Velocidad de Nave desde el Scrip "Variables"
+
+        variables = GameObject.Find("Variables").GetComponent<Variables>();
+
+        speed = variables.ShipSpeed;
+
+        interval = distance / speed;
 
 
     }
@@ -35,6 +45,8 @@ public class Instanciador : MonoBehaviour
 
     }
 
+
+    //GENERADOR DE COLUMNAS
     IEnumerator CrearColumna()
     {
 
