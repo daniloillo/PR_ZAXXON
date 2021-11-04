@@ -531,9 +531,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355f0797fb446314eb0b173115e43f99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columna: {fileID: 7346701954068861759, guid: a6d244e3898a2fe48b74a344919d1a88, type: 3}
   initPos: {fileID: 880644446}
   distance: 0
+  objects:
+  - {fileID: 4434436255315293999, guid: c9303bf34ab693c4384a7a036ca7ccee, type: 3}
+  - {fileID: 6784990501788521625, guid: a1fc28ab75ceb9f4bb26decca3ae870f, type: 3}
+  - {fileID: 5397980789032885509, guid: 1200dc69c3eaed5488380592bee3f176, type: 3}
 --- !u!4 &880644446
 Transform:
   m_ObjectHideFlags: 0
