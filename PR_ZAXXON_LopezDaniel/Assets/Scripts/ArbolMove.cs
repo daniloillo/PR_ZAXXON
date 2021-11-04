@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColumnaMove : MonoBehaviour
+public class ArbolMove : MonoBehaviour
 {
 
     float ObjSpeed;
