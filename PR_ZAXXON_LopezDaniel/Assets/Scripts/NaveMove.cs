@@ -62,7 +62,7 @@ public class NaveMove : MonoBehaviour
         
 
         //LIMITES VERTICALES
-        float limYU = 15f;
+        float limYU = 8f;
         float limYD = 0f;
 
 
