@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArbolMove : MonoBehaviour
+public class LimitesMove : MonoBehaviour
 {
-
+    // Start is called before the first frame update
     float ObjSpeed;
     float limite;
     Variables variables;
-        
+
 
 
     public object Speed { get; private set; }
@@ -30,24 +30,25 @@ public class ArbolMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         
+
 
         //MOVIMIENTO
 
-        transform.Translate(Vector3.up * Time.deltaTime * ObjSpeed);
+        transform.Translate(Vector3.back * Time.deltaTime * ObjSpeed);
 
         //DESTRUIR ELEMENTOS
 
-        if(transform.position.z <= limite)
+        if (transform.position.z <= limite)
         {
 
             Destroy(gameObject);
-                
+
 
 
         }
-        
+
     }
 
 
 }
+
