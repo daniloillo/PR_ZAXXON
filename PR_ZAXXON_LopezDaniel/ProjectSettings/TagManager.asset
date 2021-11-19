@@ -4,14 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Arbol
-  - Bellota
-  - Columna
+  - Obstaculos
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Obstaculos
   - Water
   - UI
   - 

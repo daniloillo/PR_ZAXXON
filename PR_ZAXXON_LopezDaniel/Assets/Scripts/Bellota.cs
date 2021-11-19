@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bellota : MonoBehaviour
 {
     private Rigidbody rb;
-    [SerializeField] float velocidadR = 2f;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +17,10 @@ public class Bellota : MonoBehaviour
     {
         rb.AddTorque(new Vector3(1f, 0f, 0f));
         rb.AddForce(new Vector3(0f, 0f, -1.5f));
+        if (transform.position.z <= -15f)
+        {
+            Destroy(gameObject);
+
+        }
     }
 }

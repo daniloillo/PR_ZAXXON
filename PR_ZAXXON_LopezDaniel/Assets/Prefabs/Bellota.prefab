@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4983757014517593420}
   - component: {fileID: 790806953079848222}
   - component: {fileID: -3241636448336622228}
-  m_Layer: 0
+  - component: {fileID: 3348221548165802007}
+  m_Layer: 3
   m_Name: Bellota
-  m_TagString: Bellota
+  m_TagString: Obstaculos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +99,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &-3241636448336622228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,4 +112,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0bc60dc0287e148b1fc7a74f12fd96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadR: 2
+--- !u!64 &3348221548165802007
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6784990501788521625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7435630862071700087, guid: 5935174c4fa5b0d4eb9fb45933828c77, type: 3}

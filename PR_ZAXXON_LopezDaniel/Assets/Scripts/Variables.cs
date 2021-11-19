@@ -5,6 +5,9 @@ using UnityEngine;
 public class Variables : MonoBehaviour
  
 {
+    public int vidas;
+
+    public bool muerte = false;
 
     public float ShipSpeed;
 
@@ -12,15 +15,18 @@ public class Variables : MonoBehaviour
 
     public float ShipSpeedY;
 
+    public bool initGame = true;
 
     // Start is called before the first frame update
     void Start()
     {
 
-        ShipSpeed = 60f;
 
 
-        
+        StartCoroutine("AumentadorSpeed");
+        ShipSpeed = 30f;
+
+
 
 
     }
@@ -28,6 +34,13 @@ public class Variables : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        print(ShipSpeed);
+
+
+
+
+
         //Controlador de Velocidad de la Nave en X e Y de forma independiente mediante la Velocidad de la Nave
 
         if (ShipSpeedX < 60f && ShipSpeed < 150f)
@@ -51,24 +64,24 @@ public class Variables : MonoBehaviour
             }
 
         }
-
-        
-            
-        
-
-        
-
-        
-            
-
-
-
-
-            
-            
-
-            
-        
-        
+     
     }
+
+    IEnumerator AumentadorSpeed()
+    {
+        while (ShipSpeed < 80f && Time.timeScale == 1f)
+        {
+            
+            
+            ShipSpeed = ShipSpeed + 10f;
+
+            yield return new WaitForSeconds(20f);
+
+            
+            
+
+        }
+
+    }
+
 }

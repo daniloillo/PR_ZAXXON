@@ -9,36 +9,29 @@ public class Instanciador : MonoBehaviour
 
     
     [SerializeField] Transform initPos;
-    float speed;
+    
     float interval;
     Variables variables;
     [SerializeField] float distance;
     [SerializeField] GameObject[] objects;
     [SerializeField] GameObject[] arboles;
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
+        variables = GameObject.Find("Variables").GetComponent<Variables>();
+        distance = 5f;
+        interval = distance / variables.ShipSpeed;
 
-        distance = 15f;
+
+        StartCoroutine("InstanciadorObstaculos");
+
+        //INSTANCIADORES LATERALES (ARBOLES MURO)
+        float posInst = -10f;
         StartCoroutine("InstanciadorL");
         StartCoroutine("InstanciadorR");
-        StartCoroutine("CrearColumna");
-        StartCoroutine("CrearBellota");
-        StartCoroutine("CrearArbol");
-        StartCoroutine("CrearTronco");
-
-        //Valor de Velocidad de Nave desde el Scrip "Variables"
-
-        variables = GameObject.Find("Variables").GetComponent<Variables>();
-
-        speed = variables.ShipSpeed;
-
-        interval = distance / speed;
-
-        float posInst = -10f;
-
         while (posInst <= 560f)
         {
             float lX1 = Random.Range(-32f, -27f);
@@ -63,105 +56,8 @@ public class Instanciador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
 
-
-
-
-    }
-
-
-    //GENERADOR DE COLUMNAS
-    IEnumerator CrearColumna()
-    {
-
-        while (true)
-        {
-           
-            float randomX = Random.Range(-23f, 23f);
-            float randomY = Random.Range(-3f, 2f);
-            float randomZr = Random.Range(-40f, 40f);
-            float rInterval = Random.Range(0f, 2f);
-
-            Vector3 newPos = new Vector3(randomX, randomY, initPos.position.z);
-            Instantiate(objects[0], newPos, Quaternion.Euler(-90f, 0f, 0f));
-
-            yield return new WaitForSeconds(interval + rInterval);
-
-        }
-
-    }
-    IEnumerator CrearBellota()
-    {
-
-        while (true)
-        {
-
-
-            float randomX = Random.Range(-23f, 23f);
-            float randomY = Random.Range(3, 10f);
-            float rInterval = Random.Range(0.5f, 2f);
-            Vector3 newPos = new Vector3(randomX, randomY, initPos.position.z);
-            Instantiate(objects[1], newPos, Quaternion.identity);
-
-            yield return new WaitForSeconds(interval + rInterval);
-
-        }
-
-    }
-    IEnumerator CrearArbol()
-    {
-
-        while (true)
-        {
-
-
-            float randomX = Random.Range(-20f, 20f);
-            float randomY = Random.Range(-5f, -1f);
-            float rInterval = Random.Range(1f, 4f);
-            Vector3 newPos = new Vector3(randomX, randomY, initPos.position.z);
-            Instantiate(objects[2], newPos, Quaternion.Euler(-90f, 0f, 0f));
-
-            yield return new WaitForSeconds(interval + rInterval);
-
-        }
-
-    }
-
-    IEnumerator CrearTronco()
-    {
-
-        while (true)
-        {
-
-
-            float randomX = Random.Range(-3f, 3f);
-            float rInterval = Random.Range(2f, 5f);
-            Vector3 newPos = new Vector3(randomX, initPos.position.y, initPos.position.z);
-            Instantiate(objects[3], newPos, Quaternion.Euler(0f, 90f, -90f));
-
-            yield return new WaitForSeconds(interval+ rInterval);
-
-        }
-
-    }
-    IEnumerator InstanciadorL()
-    {
-
-        while (true)
-        {
-
-            float randomX1 = Random.Range(-32f, -27f);
-            float randomX2 = Random.Range(-37f, -32f);
-
-
-            Vector3 newPos1 = new Vector3(randomX1, -4f, initPos.position.z);
-            Vector3 newPos2 = new Vector3(randomX2, -4f, initPos.position.z);
-            Instantiate(arboles[0], newPos1, Quaternion.identity);
-            Instantiate(arboles[0], newPos2, Quaternion.identity);
-
-            yield return new WaitForSeconds(0.13f);
-
-        }
     }
 
     IEnumerator InstanciadorR()
@@ -183,6 +79,91 @@ public class Instanciador : MonoBehaviour
 
         }
     }
+    IEnumerator InstanciadorL()
+    {
+
+        while (true)
+        {
+
+            float randomX1 = Random.Range(-32f, -27f);
+            float randomX2 = Random.Range(-37f, -32f);
+
+
+            Vector3 newPos1 = new Vector3(randomX1, -4f, initPos.position.z);
+            Vector3 newPos2 = new Vector3(randomX2, -4f, initPos.position.z);
+            Instantiate(arboles[0], newPos1, Quaternion.identity);
+            Instantiate(arboles[0], newPos2, Quaternion.identity);
+
+            yield return new WaitForSeconds(0.13f);
+
+        }
+    }
+
+    
+
+
+    
+
+    IEnumerator InstanciadorObstaculos()
+    {
+        while (true)
+        {
+
+            //INSTANCIADOR COLUMNAS
+            if (variables.ShipSpeed >= 30f)
+            {
+                float randomX = Random.Range(-23f, 23f);
+                float randomY = Random.Range(-3f, 2f);
+
+                Vector3 newPos = new Vector3(randomX, randomY, initPos.position.z);
+                Instantiate(objects[0], newPos, Quaternion.Euler(-90f, 0f, 0f));
+                float rInterval = Random.Range(0.1f, 0.3f);
+                
+            }
+            //INSTANCIADOR BELLOTAS
+            else if ( variables.ShipSpeed >= 40f)
+            {
+                float randomX = Random.Range(-23f, 23f);
+                float randomY = Random.Range(3, 10f);
+
+                Vector3 newPos = new Vector3(randomX, randomY, initPos.position.z);
+                Instantiate(objects[1], newPos, Quaternion.identity);
+
+                float rInterval = Random.Range(1f, 2f);
+                yield return new WaitForSeconds(interval + rInterval);
+
+            }
+            //INSTANCIADOR ARBOLES
+            else if(variables.ShipSpeed >= 50f)
+            {
+                float randomX = Random.Range(-20f, 20f);
+                float randomY = Random.Range(-5f, -1f);
+
+                Vector3 newPos = new Vector3(randomX, randomY, initPos.position.z);
+                Instantiate(objects[2], newPos, Quaternion.Euler(-90f, 0f, 0f));
+
+                float rInterval = Random.Range(1f, 3f);
+                yield return new WaitForSeconds(interval + rInterval);
+            }
+            //INSTANCIADOR TRONCOS
+            else if (variables.ShipSpeed >= 60f)
+            {
+                float randomX = Random.Range(-3f, 3f);
+
+                Vector3 newPos = new Vector3(randomX, initPos.position.y, initPos.position.z);
+                Instantiate(objects[3], newPos, Quaternion.Euler(0f, 90f, -90f));
+                float rInterval = Random.Range(1f, 3f);
+                yield return new WaitForSeconds(interval + rInterval);
+            }
+            else
+            {
+
+            }
+        }
+    }
+   
+    
+ 
 }
 
 

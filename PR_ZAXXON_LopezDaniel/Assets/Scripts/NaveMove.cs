@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
 
 public class NaveMove : MonoBehaviour
 {
     //VELOCIDAD
     float desplXSpeed;
     float desplYSpeed;
-
     Variables variables;
-
-
-
-
+    
 
 
 
@@ -34,28 +31,34 @@ public class NaveMove : MonoBehaviour
         desplYSpeed = variables.ShipSpeedY;
 
 
+        
         Movimiento();
+        
+
+        
+        
 
 
 
     }
+    
 
     void Movimiento()
     {
+       
+
         //INTERACTIVIDAD
         float desplX = Input.GetAxis("Horizontal");
-
         float desplY = Input.GetAxis("Vertical");
-
-        float rollR = Input.GetAxis("RollR");
-
-        float rollL = Input.GetAxis("RollL");
-
         
 
         //POSICION
         float posX = transform.position.x;
         float posY = transform.position.y;
+
+        //ROTACION
+        float limR = 0.2f;
+        float rotZ = transform.rotation.z;
 
         //LIMITE HORIZONTAL
         float limX = 20f;
@@ -65,17 +68,45 @@ public class NaveMove : MonoBehaviour
         float limYU = 8f;
         float limYD = 0f;
 
+        
 
 
-        transform.Translate(Vector3.right * Time.deltaTime * desplX * desplXSpeed, Space.World);
+        if (desplX > 0f)
+        {
+            transform.Translate(Vector3.right * Time.deltaTime * desplX * desplXSpeed, Space.World);     
+        }
+
+        if (desplX < 0f)
+        {   
+            transform.Translate(Vector3.right * Time.deltaTime * desplX * desplXSpeed, Space.World);
+        }
+
+        if (rotZ >= -limR && rotZ <= limR)
+        {
+            transform.Rotate(Vector3.back * Time.deltaTime * desplX * 100f);
+           
+        }
+        if (rotZ < -limR) 
+        {
+            transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, -limR, 1f);
+
+        }
+        else if (rotZ > limR) 
+        {
+            transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, limR, 1f);
+
+        }
+       
+
 
         transform.Translate(Vector3.up * Time.deltaTime * desplY * desplYSpeed, Space.World);
 
-        transform.Rotate(Vector3.forward * Time.deltaTime * rollR * 100f);
 
-        transform.Rotate(Vector3.back * Time.deltaTime * rollL * 100f);
 
-        
+
+
+
+
 
         //LIMITES
 
@@ -102,36 +133,7 @@ public class NaveMove : MonoBehaviour
             transform.position = new Vector3(transform.position.x, limYD, transform.position.z);
         }
 
-
-        //NO FUNCIONA
-
-        /*if((posX < limX || desplX < 0f) && (posX > -limX || desplX > 0f))
-        {
-
-            transform.Translate(Vector3.right * Time.deltaTime * desplX * desplXSpeed, Space.World);
-
-        }
-
-        if((posY < limYU || desplY < 0f) && (posY > limYD || desplY > 0f))
-        {
-
-            transform.Translate(Vector3.up * Time.deltaTime * desplY * desplYSpeed, Space.World);
-
-        }
-        */
-
-
-
-
+        
     }
-
-
-
-
-
-
-
-
-
 
 }
