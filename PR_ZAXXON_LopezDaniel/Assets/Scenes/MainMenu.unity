@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 248059937}
   - component: {fileID: 248059936}
   m_Layer: 5
-  m_Name: Boton1
+  m_Name: ComenzarPartida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 931774372}
   - component: {fileID: 931774371}
   m_Layer: 5
-  m_Name: Boton1 (2)
+  m_Name: Salir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -878,7 +878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 248059934}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1540157069
@@ -1011,7 +1011,7 @@ GameObject:
   - component: {fileID: 1680072236}
   - component: {fileID: 1680072235}
   m_Layer: 5
-  m_Name: Boton1 (1)
+  m_Name: Opciones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
