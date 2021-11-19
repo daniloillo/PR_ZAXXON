@@ -286,6 +286,7 @@ MonoBehaviour:
   ShipSpeed: 0
   ShipSpeedX: 30
   ShipSpeedY: 15
+  initGame: 1
 --- !u!4 &443698134
 Transform:
   m_ObjectHideFlags: 0
@@ -963,7 +964,7 @@ MonoBehaviour:
   livesImage: {fileID: 596281846}
   tutorialImage: {fileID: 1307129417}
   livesSprite:
-  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   - {fileID: 4963803340247614190, guid: a3e95b703bad09b428ae155b87667b9f, type: 3}
   - {fileID: -1254087961543550518, guid: a3e95b703bad09b428ae155b87667b9f, type: 3}
   - {fileID: 2611041763144838783, guid: a3e95b703bad09b428ae155b87667b9f, type: 3}

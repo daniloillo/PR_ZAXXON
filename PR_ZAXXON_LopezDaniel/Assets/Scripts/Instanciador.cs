@@ -49,6 +49,19 @@ public class Instanciador : MonoBehaviour
             posInst = posInst + 5f;
 
         }
+        //INSTANCIADOR TRONCOS INICIALES
+        float posInst2 = 60f;
+        while(posInst2 <= 560f)
+        {
+            float randomX = Random.Range(-23f, 23f);
+            float randomY = Random.Range(-3f, 2f);
+
+            Vector3 newPos = new Vector3(randomX, randomY, posInst2);
+            Instantiate(objects[0], newPos, Quaternion.Euler(-90f, 0f, 0f));
+            posInst2 = posInst2 + 10f;
+        }
+
+        
 
 
     }
@@ -118,7 +131,8 @@ public class Instanciador : MonoBehaviour
                 Vector3 newPos = new Vector3(randomX, randomY, initPos.position.z);
                 Instantiate(objects[0], newPos, Quaternion.Euler(-90f, 0f, 0f));
                 float rInterval = Random.Range(0.1f, 0.3f);
-                
+                yield return new WaitForSeconds(interval + rInterval);
+
             }
             //INSTANCIADOR BELLOTAS
             else if ( variables.ShipSpeed >= 40f)

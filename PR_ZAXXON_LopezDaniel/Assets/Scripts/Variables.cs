@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Variables : MonoBehaviour
  
@@ -35,10 +36,7 @@ public class Variables : MonoBehaviour
     void Update()
     {
 
-        print(ShipSpeed);
-
-
-
+        
 
 
         //Controlador de Velocidad de la Nave en X e Y de forma independiente mediante la Velocidad de la Nave

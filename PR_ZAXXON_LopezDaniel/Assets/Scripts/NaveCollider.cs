@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class NaveCollider : MonoBehaviour
 {
     Variables variables;
+    UI ui;
     
     
 
@@ -20,7 +22,9 @@ public class NaveCollider : MonoBehaviour
     void Update()
     {
         variables = GameObject.Find("Variables").GetComponent<Variables>();
-        
+        ui = GameObject.Find("UI Canvas").GetComponent<UI>();
+
+
     }
     void OnTriggerEnter(Collider other)
     {   
@@ -28,11 +32,13 @@ public class NaveCollider : MonoBehaviour
         if (other.gameObject.layer == 3 && variables.vidas > 0)
         {
             variables.vidas--;
+            ui.livesImage.sprite = ui.livesSprite[variables.vidas];
             print("hit");
         }
         if (variables.vidas == 0)
         {
             print("A MIMIR");
+            SceneManager.LoadScene(2);
 
         }
 

@@ -6,9 +6,9 @@ using System.Threading;
 
 public class UI : MonoBehaviour
 {
-    [SerializeField] Image livesImage;
+    public Image livesImage;
     [SerializeField] GameObject tutorialImage;
-    [SerializeField] Sprite[] livesSprite;
+    public Sprite[] livesSprite;
     Variables variables;
     int vidas;
     
@@ -38,14 +38,12 @@ public class UI : MonoBehaviour
 
     }
     void DetectorVidas()
-    {
+    {      
         variables = GameObject.Find("Variables").GetComponent<Variables>();
         vidas = variables.vidas;
 
         livesImage.sprite = livesSprite[vidas];
-
         
-
     }
     void  Tutorial()
     {
