@@ -20,7 +20,7 @@ public class PrefabMove : MonoBehaviour
 
         variables = GameObject.Find("Variables").GetComponent<Variables>();
 
-        ObjSpeed = variables.ShipSpeed;
+        
 
         // EN QUE PUNTO DEL EJE Z DESAPARECEN
 
@@ -34,7 +34,7 @@ public class PrefabMove : MonoBehaviour
 
         //MOVIMIENTO
 
-        transform.Translate(Vector3.up * Time.deltaTime * ObjSpeed);
+        transform.Translate(Vector3.up * Time.deltaTime * variables.ShipSpeed);
 
         //DESTRUIR ELEMENTOS
 

@@ -27,7 +27,7 @@ public class Instanciador : MonoBehaviour
 
         //INSTANCIADORES OBJETOS/OBSTACULOS
         StartCoroutine("InstanciadorColumnas");
-        StartCoroutine("InstanciadorBellotas");
+        
 
         //INSTANCIADORES LATERALES (ARBOLES MURO)
         float posInst = -10f;

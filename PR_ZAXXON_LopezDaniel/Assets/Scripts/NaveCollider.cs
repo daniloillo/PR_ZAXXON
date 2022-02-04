@@ -31,9 +31,8 @@ public class NaveCollider : MonoBehaviour
         
         if (other.gameObject.layer == 3 && variables.vidas > 0)
         {
-            variables.vidas--;
-            ui.livesImage.sprite = ui.livesSprite[variables.vidas];
-            print("hit");
+            
+
         }
         if (variables.vidas == 0)
         {

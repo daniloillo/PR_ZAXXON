@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
 
+
 public class NaveMove : MonoBehaviour
 {
     //VELOCIDAD
     float desplXSpeed;
     float desplYSpeed;
     Variables variables;
-    
+    Animator animator;
 
 
 
@@ -26,7 +27,7 @@ public class NaveMove : MonoBehaviour
     void Update()
     {
         variables = GameObject.Find("Variables").GetComponent<Variables>();
-
+        animator = GetComponent<Animator>();
         desplXSpeed = variables.ShipSpeedX;
         desplYSpeed = variables.ShipSpeedY;
 
@@ -56,9 +57,7 @@ public class NaveMove : MonoBehaviour
         float posX = transform.position.x;
         float posY = transform.position.y;
 
-        //ROTACION
-        float limR = 0.2f;
-        float rotZ = transform.rotation.z;
+        
 
         //LIMITE HORIZONTAL
         float limX = 20f;
@@ -68,34 +67,25 @@ public class NaveMove : MonoBehaviour
         float limYU = 8f;
         float limYD = 0f;
 
-        
+        //ANIMACIONES
+        animator.SetFloat("MovimientoX", desplX);
+
+
 
 
         if (desplX > 0f)
         {
-            transform.Translate(Vector3.right * Time.deltaTime * desplX * desplXSpeed, Space.World);     
+            transform.Translate(Vector3.right * Time.deltaTime * desplX * desplXSpeed, Space.World);
+            
         }
 
         if (desplX < 0f)
         {   
             transform.Translate(Vector3.right * Time.deltaTime * desplX * desplXSpeed, Space.World);
-        }
-
-        if (rotZ >= -limR && rotZ <= limR)
-        {
-            transform.Rotate(Vector3.back * Time.deltaTime * desplX * 100f);
-           
-        }
-        if (rotZ < -limR) 
-        {
-            transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, -limR, 1f);
 
         }
-        else if (rotZ > limR) 
-        {
-            transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, limR, 1f);
 
-        }
+        
        
 
 

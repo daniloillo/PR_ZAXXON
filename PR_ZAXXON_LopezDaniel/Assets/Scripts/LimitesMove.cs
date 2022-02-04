@@ -20,7 +20,7 @@ public class LimitesMove : MonoBehaviour
 
         variables = GameObject.Find("Variables").GetComponent<Variables>();
 
-        ObjSpeed = variables.ShipSpeed;
+        
 
         // EN QUE PUNTO DEL EJE Z DESAPARECEN
 
@@ -34,7 +34,7 @@ public class LimitesMove : MonoBehaviour
 
         //MOVIMIENTO
 
-        transform.Translate(Vector3.back * Time.deltaTime * ObjSpeed);
+        transform.Translate(Vector3.back * Time.deltaTime * variables.ShipSpeed);
 
         //DESTRUIR ELEMENTOS
 
