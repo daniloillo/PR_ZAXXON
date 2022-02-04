@@ -18,6 +18,8 @@ public class Variables : MonoBehaviour
 
     public bool initGame = true;
 
+    [SerializeField] GameObject[] objects;
+
     // Start is called before the first frame update
     void Start()
     {

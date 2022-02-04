@@ -25,8 +25,9 @@ public class Instanciador : MonoBehaviour
         distance = 5f;
         interval = distance / variables.ShipSpeed;
 
-
-        StartCoroutine("InstanciadorObstaculos");
+        //INSTANCIADORES OBJETOS/OBSTACULOS
+        StartCoroutine("InstanciadorColumnas");
+        StartCoroutine("InstanciadorBellotas");
 
         //INSTANCIADORES LATERALES (ARBOLES MURO)
         float posInst = -10f;
@@ -112,10 +113,55 @@ public class Instanciador : MonoBehaviour
         }
     }
 
-    
 
 
-    
+    IEnumerator InstanciadorColumnas()
+    {
+        while (true)
+        {
+            if (variables.ShipSpeed >= 30f)
+            {
+                float randomX = Random.Range(-23f, 23f);
+                float randomY = Random.Range(-3f, 2f);
+
+                Vector3 newPos = new Vector3(randomX, randomY, initPos.position.z);
+                Instantiate(objects[0], newPos, Quaternion.Euler(-90f, 0f, 0f));
+                float rInterval = Random.Range(0.1f, 0.4f);
+                yield return new WaitForSeconds(interval + rInterval);
+            }
+            else
+            {
+                print("No instancio Columnas");
+            }
+
+
+        }
+
+    }
+    /*IEnumerator InstanciadorBellotas()
+    {
+        while (true)
+        {
+            if (variables.ShipSpeed >= 40f)
+            {
+                float randomX = Random.Range(-23f, 23f);
+                float randomY = Random.Range(3, 10f);
+
+                Vector3 newPos = new Vector3(randomX, randomY, initPos.position.z);
+                Instantiate(objects[1], newPos, Quaternion.identity);
+
+                float rInterval = Random.Range(1f, 2f);
+                yield return new WaitForSeconds(interval + rInterval);
+
+            }
+            else
+            {
+                print("No instancio Bellotas");
+            }
+        }
+    }*/
+
+
 
     IEnumerator InstanciadorObstaculos()
     {
