@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 6806915585074971602}
   - component: {fileID: 8760612748655998744}
   - component: {fileID: -5640155043828887718}
-  m_Layer: 0
+  - component: {fileID: 5542183978783717932}
+  - component: {fileID: -2282657658040143169}
+  m_Layer: 3
   m_Name: Arbol1
-  m_TagString: Untagged
+  m_TagString: Obstaculos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,3 +98,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0631aeb874c5c43b6662012f161796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &5542183978783717932
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7103037053843642061}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1870725574105663553, guid: d8e491f2564d383459b2d52fd7fb3cd7, type: 3}
+--- !u!54 &-2282657658040143169
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7103037053843642061}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

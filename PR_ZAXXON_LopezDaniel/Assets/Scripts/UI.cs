@@ -10,7 +10,7 @@ public class UI : MonoBehaviour
     [SerializeField] GameObject tutorialImage;
     public Sprite[] livesSprite;
     Variables variables;
-    int vidas;
+    
     
     int contadorInicio;
 
@@ -20,9 +20,9 @@ public class UI : MonoBehaviour
     void Start()
     {
         
-        vidas = 3;
+        
 
-        DetectorVidas();
+        
 
         
         
@@ -33,16 +33,16 @@ public class UI : MonoBehaviour
     void Update()
     {
         Tutorial();
+        DetectorVidas();
 
-        
 
     }
     void DetectorVidas()
     {      
         variables = GameObject.Find("Variables").GetComponent<Variables>();
-        vidas = variables.vidas;
+        
 
-        livesImage.sprite = livesSprite[vidas];
+        livesImage.sprite = livesSprite[variables.vidas];
         
     }
     void  Tutorial()

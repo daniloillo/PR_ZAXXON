@@ -34,7 +34,7 @@ public class PrefabMove : MonoBehaviour
 
         //MOVIMIENTO
 
-        transform.Translate(Vector3.up * Time.deltaTime * variables.ShipSpeed);
+        transform.Translate(Vector3.back * Time.deltaTime * variables.ShipSpeed);
 
         //DESTRUIR ELEMENTOS
 

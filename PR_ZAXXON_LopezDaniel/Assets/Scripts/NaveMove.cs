@@ -64,8 +64,12 @@ public class NaveMove : MonoBehaviour
         
 
         //LIMITES VERTICALES
-        float limYU = 8f;
+        float limYU = 5f;
         float limYD = 0f;
+        if(variables.ShipSpeed >= 50f)
+        {
+            limYU = 8f;
+        }
 
         //ANIMACIONES
         animator.SetFloat("MovimientoX", desplX);

@@ -24,7 +24,7 @@ public class Variables : MonoBehaviour
     void Start()
     {
 
-
+        vidas = 3;
 
         StartCoroutine("AumentadorSpeed");
         ShipSpeed = 30f;

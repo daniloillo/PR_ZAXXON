@@ -8,8 +8,13 @@ public class NaveCollider : MonoBehaviour
 {
     Variables variables;
     UI ui;
-    
-    
+    MeshCollider meshCollider;
+    bool Golpeado = false;
+    Animator animator;
+
+
+
+
 
 
     // Start is called before the first frame update
@@ -21,25 +26,58 @@ public class NaveCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         variables = GameObject.Find("Variables").GetComponent<Variables>();
         ui = GameObject.Find("UI Canvas").GetComponent<UI>();
+        meshCollider = GameObject.Find("Nave").GetComponent<MeshCollider>();
+        animator = GetComponent<Animator>();
 
 
     }
     void OnTriggerEnter(Collider other)
-    {   
+    {
         
         if (other.gameObject.layer == 3 && variables.vidas > 0)
         {
             
+            if (Golpeado == false  )
+            {
+                golpeCD();
+
+                Invoke("ActivarMesh", 3f);
+
+                
+            }
+         
 
         }
         if (variables.vidas == 0)
         {
-            print("A MIMIR");
+            
             SceneManager.LoadScene(2);
 
         }
+        
+ 
+    }
+    void golpeCD()
+    {
+        meshCollider.enabled = false;
+        Golpeado = true;
+        variables.vidas--;
+        animator.SetBool("Golpeado", true);
 
     }
+
+    void ActivarMesh()
+    {
+
+        meshCollider.enabled = true;
+        Golpeado = false;
+        animator.SetBool("Golpeado", false);
+
+    }
+
+
+
 }

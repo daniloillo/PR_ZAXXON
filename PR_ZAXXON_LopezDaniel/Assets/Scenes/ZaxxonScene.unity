@@ -349,7 +349,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &858059116
 MonoBehaviour:
@@ -400,10 +400,10 @@ MonoBehaviour:
   initPos: {fileID: 880644446}
   distance: 0
   objects:
-  - {fileID: 4434436255315293999, guid: c9303bf34ab693c4384a7a036ca7ccee, type: 3}
-  - {fileID: 6784990501788521625, guid: a1fc28ab75ceb9f4bb26decca3ae870f, type: 3}
-  - {fileID: 5397980789032885509, guid: 1200dc69c3eaed5488380592bee3f176, type: 3}
-  - {fileID: 7209284793815874988, guid: 63b25e7adc4519d4dbda4b9ee21861c2, type: 3}
+  - {fileID: 8583913496775505241, guid: 3833acd1c88e7dc4595e918a1bb5cc65, type: 3}
+  - {fileID: 6702334415306511978, guid: e2b43fed9b85aeb44af29abb4e6721b0, type: 3}
+  - {fileID: 7103037053843642061, guid: 91bf3e4f345351b43b1de4f51b995c5a, type: 3}
+  - {fileID: 7807653579753037180, guid: a5e2583007330ca4691baae4625bded2, type: 3}
   arboles:
   - {fileID: 6609174964608025233, guid: 255ffba8fe1e9884a8376007ce349fe8, type: 3}
 --- !u!4 &880644446
@@ -651,7 +651,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4978662031528964698, guid: 0cf6bd7f447fdc24980b25d276e6e0a2, type: 3}
 --- !u!1001 &1243583290
@@ -663,7 +663,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0cf6bd7f447fdc24980b25d276e6e0a2, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0cf6bd7f447fdc24980b25d276e6e0a2, type: 3}
       propertyPath: m_LocalScale.x
