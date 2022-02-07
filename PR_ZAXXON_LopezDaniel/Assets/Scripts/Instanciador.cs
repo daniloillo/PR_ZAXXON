@@ -55,7 +55,7 @@ public class Instanciador : MonoBehaviour
         while(posInst2 <= 560f)
         {
             float randomX = Random.Range(-21f, 21f);
-            float randomY = Random.Range(-4f, 1f);
+            float randomY = Random.Range(-3f, 2f);
 
             Vector3 newPos = new Vector3(randomX, randomY, posInst2);
             Instantiate(objects[0], newPos, Quaternion.identity);
@@ -128,7 +128,7 @@ public class Instanciador : MonoBehaviour
             {
                 //INSTANCIADOR COLUMNAS
                 float randomXC = Random.Range(-21f, 21f);
-                float randomYC = Random.Range(-4f, 1f);
+                float randomYC = Random.Range(-3f, 2f);
 
                 Vector3 newPos = new Vector3(randomXC, randomYC, initPos.position.z);
                 Instantiate(objects[0], newPos, Quaternion.identity);
@@ -141,7 +141,7 @@ public class Instanciador : MonoBehaviour
             {
                 //INSTANCIADOR COLUMNAS
                 float randomXC = Random.Range(-21f, 21f);
-                float randomYC = Random.Range(-4f, 1f);
+                float randomYC = Random.Range(-3f, 2f);
 
                 Vector3 newPosC = new Vector3(randomXC, randomYC, initPos.position.z);
                 Instantiate(objects[0], newPosC, Quaternion.identity);
@@ -165,7 +165,7 @@ public class Instanciador : MonoBehaviour
             {
                 //INSTANCIADOR COLUMNAS
                 float randomXC = Random.Range(-21f, 21f);
-                float randomYC = Random.Range(-4f, 1f);
+                float randomYC = Random.Range(-3f, 2f);
 
                 Vector3 newPosC = new Vector3(randomXC, randomYC, initPos.position.z);
                 Instantiate(objects[0], newPosC, Quaternion.identity);
@@ -182,7 +182,7 @@ public class Instanciador : MonoBehaviour
 
                 //INSTANCIADOR ARBOLES
                 float randomXA = Random.Range(-20f, 20f);
-                float randomYA = Random.Range(-5f, -1f);
+                float randomYA = Random.Range(-2f, 0f);
 
                 Vector3 newPos = new Vector3(randomXA, randomYA, initPos.position.z);
                 Instantiate(objects[2], newPos, Quaternion.identity);
@@ -195,7 +195,7 @@ public class Instanciador : MonoBehaviour
             {
                 //INSTANCIADOR COLUMNAS
                 float randomXC = Random.Range(-21f, 21f);
-                float randomYC = Random.Range(-4f, 1f);
+                float randomYC = Random.Range(-3f, 2f);
 
                 Vector3 newPosC = new Vector3(randomXC, randomYC, initPos.position.z);
                 Instantiate(objects[0], newPosC, Quaternion.identity);
@@ -212,7 +212,7 @@ public class Instanciador : MonoBehaviour
 
                 //INSTANCIADOR ARBOLES
                 float randomXA = Random.Range(-20f, 20f);
-                float randomYA = Random.Range(-5f, -1f);
+                float randomYA = Random.Range(-2f, 0f);
 
                 Vector3 newPosA = new Vector3(randomXA, randomYA, initPos.position.z);
                 Instantiate(objects[2], newPosA, Quaternion.identity);
