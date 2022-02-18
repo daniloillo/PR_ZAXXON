@@ -124,7 +124,7 @@ public class Instanciador : MonoBehaviour
         {
 
             
-            if (variables.ShipSpeed <= 30f)
+            if (variables.ShipSpeed <= 40f)
             {
                 //INSTANCIADOR COLUMNAS
                 float randomXC = Random.Range(-21f, 21f);
@@ -137,7 +137,7 @@ public class Instanciador : MonoBehaviour
 
             }
             
-            else if ( variables.ShipSpeed <= 40f)
+            else if ( variables.ShipSpeed <= 50f)
             {
                 //INSTANCIADOR COLUMNAS
                 float randomXC = Random.Range(-21f, 21f);
@@ -149,7 +149,7 @@ public class Instanciador : MonoBehaviour
 
                 //INSTANCIADOR BELLOTAS
                 float randomXB = Random.Range(-23f, 23f);
-                float randomYB = Random.Range(0f, 10f);
+                float randomYB = Random.Range(0f, 8f);
 
                 Vector3 newPosB = new Vector3(randomXB, randomYB, initPos.position.z);
                 Instantiate(objects[1], newPosB, Quaternion.identity);
@@ -161,7 +161,7 @@ public class Instanciador : MonoBehaviour
 
             }
             
-            else if(variables.ShipSpeed <= 50f)
+            else if(variables.ShipSpeed <= 60f)
             {
                 //INSTANCIADOR COLUMNAS
                 float randomXC = Random.Range(-21f, 21f);
@@ -173,7 +173,7 @@ public class Instanciador : MonoBehaviour
 
                 //INSTANCIADOR BELLOTAS
                 float randomXB = Random.Range(-23f, 23f);
-                float randomYB = Random.Range(1, 10f);
+                float randomYB = Random.Range(1, 8f);
 
                 Vector3 newPosB = new Vector3(randomXB, randomYB, initPos.position.z);
                 Instantiate(objects[1], newPosB, Quaternion.identity);
@@ -203,7 +203,7 @@ public class Instanciador : MonoBehaviour
 
                 //INSTANCIADOR BELLOTAS
                 float randomXB = Random.Range(-23f, 23f);
-                float randomYB = Random.Range(3, 10f);
+                float randomYB = Random.Range(3, 8f);
 
                 Vector3 newPosB = new Vector3(randomXB, randomYB, initPos.position.z);
                 Instantiate(objects[1], newPosB, Quaternion.identity);
@@ -223,7 +223,7 @@ public class Instanciador : MonoBehaviour
                 float randomXT = Random.Range(-3f, 3f);
 
                 Vector3 newPosT = new Vector3(randomXT, initPos.position.y, initPos.position.z);
-                Instantiate(objects[3], newPosT, Quaternion.identity);
+                Instantiate(objects[3], newPosT, Quaternion.Euler(0f, 90f, 0f));
                 float rIntervalT = Random.Range(0.1f, 0.3f);
                 yield return new WaitForSeconds(interval + rIntervalT);
             }

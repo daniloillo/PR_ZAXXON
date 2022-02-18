@@ -9,7 +9,7 @@ public class NaveCollider : MonoBehaviour
     Variables variables;
     UI ui;
     MeshCollider meshCollider;
-    bool Golpeado = false;
+    
     Animator animator;
 
 
@@ -20,7 +20,7 @@ public class NaveCollider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class NaveCollider : MonoBehaviour
         if (other.gameObject.layer == 3 && variables.vidas > 0)
         {
             
-            if (Golpeado == false  )
+            if (variables.golpeado == false  )
             {
                 golpeCD();
 
@@ -63,7 +63,7 @@ public class NaveCollider : MonoBehaviour
     void golpeCD()
     {
         meshCollider.enabled = false;
-        Golpeado = true;
+        variables.golpeado = true;
         variables.vidas--;
         animator.SetBool("Golpeado", true);
 
@@ -73,7 +73,7 @@ public class NaveCollider : MonoBehaviour
     {
 
         meshCollider.enabled = true;
-        Golpeado = false;
+        variables.golpeado = false;
         animator.SetBool("Golpeado", false);
 
     }

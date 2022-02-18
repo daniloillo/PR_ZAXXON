@@ -18,6 +18,12 @@ public class Variables : MonoBehaviour
 
     public bool initGame = true;
 
+    public bool golpeado = false;
+
+    
+
+    public int nivel;
+
     [SerializeField] GameObject[] objects;
 
     // Start is called before the first frame update
@@ -37,15 +43,30 @@ public class Variables : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Ajuste Velocidad tras Golpe
 
-        
+        if (Time.timeScale == 1f)
+        {
+            if (golpeado == true)
+            {
+                ShipSpeed = 20f;
 
+            }
+            else
+            {
+                velocidadNivel();
+            }
+
+        }
+
+        print(ShipSpeed);
 
         //Controlador de Velocidad de la Nave en X e Y de forma independiente mediante la Velocidad de la Nave
 
         if (ShipSpeedX < 60f && ShipSpeed < 150f)
         {
             ShipSpeedX = (ShipSpeed * 0.4f);
+            
 
             if (ShipSpeedX >= 60f)
             {
@@ -71,17 +92,39 @@ public class Variables : MonoBehaviour
     {
         while (ShipSpeed < 80f && Time.timeScale == 1f)
         {
-            
-            
-            ShipSpeed = ShipSpeed + 10f;
-
+           //Pasa de Nivel cada 20 segundos
+            nivel++;
             yield return new WaitForSeconds(20f);
-
-            
             
 
         }
 
     }
+
+    //Ajuste de Velocidad cada Nivel
+    void velocidadNivel()
+    {
+        if (nivel == 1)
+        {
+            ShipSpeed = 40f;
+        }
+        else if (nivel == 2)
+        {
+            ShipSpeed = 50f;
+        }
+        else if (nivel == 3)
+        {
+            ShipSpeed = 60f;
+        }
+        else if (nivel == 4)
+        {
+            ShipSpeed = 70f;
+        }
+        else
+        {
+            ShipSpeed = 80f;
+        }
+    }
+    
 
 }
