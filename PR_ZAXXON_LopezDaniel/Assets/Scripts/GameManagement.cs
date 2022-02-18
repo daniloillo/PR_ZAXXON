@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GameManagement : MonoBehaviour
 {   public Material material;
-    Variables variables;    
+    Variables variables;
+    
+    
     // Start is called before the first frame update
     void Start()
     {   //SKYBOX PARAMETROS INICIALES
@@ -14,8 +16,8 @@ public class GameManagement : MonoBehaviour
 
         //VariablesVelocidad
         variables = GameObject.Find("Variables").GetComponent<Variables>();
-        
 
+        
     }
 
     // Update is called once per frame

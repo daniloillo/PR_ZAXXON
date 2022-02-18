@@ -20,7 +20,7 @@ public class Variables : MonoBehaviour
 
     public bool golpeado = false;
 
-    
+    AudioSource audioSource;
 
     public int nivel;
 
@@ -35,6 +35,8 @@ public class Variables : MonoBehaviour
         StartCoroutine("AumentadorSpeed");
         ShipSpeed = 30f;
 
+        audioSource = GetComponent<AudioSource>();
+        
 
 
 
@@ -95,7 +97,7 @@ public class Variables : MonoBehaviour
            //Pasa de Nivel cada 20 segundos
             nivel++;
             yield return new WaitForSeconds(20f);
-            
+            audioSource.PlayOneShot(audioSource.clip, 1f);
 
         }
 

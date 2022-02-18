@@ -7,32 +7,31 @@ using UnityEngine.UI;
 public class NaveCollider : MonoBehaviour
 {
     Variables variables;
+
     UI ui;
+
     MeshCollider meshCollider;
     
     Animator animator;
 
-
-
-
+    AudioSource audioSource;
 
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        variables = GameObject.Find("Variables").GetComponent<Variables>();
+        ui = GameObject.Find("UI Canvas").GetComponent<UI>();
+        meshCollider = GameObject.Find("Nave").GetComponent<MeshCollider>();
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        variables = GameObject.Find("Variables").GetComponent<Variables>();
-        ui = GameObject.Find("UI Canvas").GetComponent<UI>();
-        meshCollider = GameObject.Find("Nave").GetComponent<MeshCollider>();
-        animator = GetComponent<Animator>();
-
-
+    
     }
     void OnTriggerEnter(Collider other)
     {
@@ -46,6 +45,7 @@ public class NaveCollider : MonoBehaviour
 
                 Invoke("ActivarMesh", 3f);
 
+                audioSource.PlayOneShot(audioSource.clip, 1f);
                 
             }
          
