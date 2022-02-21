@@ -10,6 +10,7 @@ public class UI : MonoBehaviour
     [SerializeField] GameObject tutorialImage;
     public Sprite[] livesSprite;
     Variables variables;
+    [SerializeField] Image[] uiButtons;
     
     
     int contadorInicio;
@@ -19,13 +20,9 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        
 
         
 
-        
-        
 
     }
 
@@ -65,6 +62,8 @@ public class UI : MonoBehaviour
             contadorInicio++;
 
             Destroy(tutorialImage);
+            Destroy(uiButtons[0]);
+            Destroy(uiButtons[1]);
 
             StopCoroutine("Tutorial");
         }
@@ -78,5 +77,7 @@ public class UI : MonoBehaviour
         {
             
         }
-    }  
+    }
+
+    
 }

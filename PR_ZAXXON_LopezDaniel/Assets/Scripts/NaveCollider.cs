@@ -16,6 +16,8 @@ public class NaveCollider : MonoBehaviour
 
     AudioSource audioSource;
 
+    [SerializeField] ParticleSystem explosion;
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,8 +55,11 @@ public class NaveCollider : MonoBehaviour
         }
         if (variables.vidas == 0)
         {
-            
-            SceneManager.LoadScene(2);
+
+            Invoke("CargarEscenaMuerte", 3);
+            explosion.Play();
+            meshCollider.enabled = false;           
+            animator.SetTrigger("Muerte");
 
         }
         
@@ -76,6 +81,11 @@ public class NaveCollider : MonoBehaviour
         variables.golpeado = false;
         animator.SetBool("Golpeado", false);
 
+    }
+
+    void CargarEscenaMuerte()
+    {
+        SceneManager.LoadScene(2);
     }
 
 

@@ -14,10 +14,26 @@ public class Botones : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene(0);
+        //Reanuda Musica Menú (Si venimos de la escena GameOver)
+        MusicScript.inst.Reanudar();
     }
- 
+    public void InitGame()
+    {
+        SceneManager.LoadScene(1);
+        //Pausar Musica Menú
+        MusicScript.inst.Pausar();
+    }
+    public void Options()
+    {
+        SceneManager.LoadScene(3);
+    }
+    public void QuitGame()
+    {
+       Application.Quit();
+    }
+
     public void SetVolume (float volume)
     {
-        audioMixer.SetFloat("Volume", volume);
+        audioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
     }
 }
